@@ -46,15 +46,15 @@ def prawd(kolumna, klasa):
     # zadziala tez jak dodasz wiecej zestawow treningowych)
 
     # wyciagniecie ze slownika zestawow treningowych w ktorych c ma wartosc ktora mamy w zmiennej klasa
-    zestawy_treningowe = grouped_by_class[klasa]
-    liczba_zestawow_klasy = len(zestawy_treningowe)
+    zestawy_treningowe_z_danej_klasy = grouped_by_class[klasa]
+    liczba_zestawow_z_danej_klasy = len(zestawy_treningowe_z_danej_klasy)
 
     # teraz iteruje po zestawach treningowych, i sprawdzam czy zadana kolumna w zestawie treningowym ma oczekiwana wartosc
-    # z zestawu testowego
-    for i in zestawy_treningowe:
+    # z zestawu testowego, jeśli tak, dodaje do licznika wystąpien
+    for i in zestawy_treningowe_z_danej_klasy:
         if i.loc[kolumna] == wartosc_atrybutu_z_zestawu_testowego:
             licznik_wystapien += 1
-    return licznik_wystapien / liczba_zestawow_klasy
+    return licznik_wystapien / liczba_zestawow_z_danej_klasy
 
 
 p_a1_c2 = prawd("a1", 2)
